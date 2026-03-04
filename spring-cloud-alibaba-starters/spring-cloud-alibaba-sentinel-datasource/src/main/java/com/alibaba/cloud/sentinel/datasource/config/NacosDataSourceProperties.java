@@ -143,4 +143,24 @@ public class NacosDataSourceProperties extends AbstractDataSourceProperties {
 		this.secretKey = secretKey;
 	}
 
+	@Override
+	public String toString() {
+		return "NacosDataSourceProperties{"
+				+ "serverAddr='" + serverAddr + '\''
+				+ ", contextPath='" + contextPath + '\''
+				+ ", username='" + username + '\''
+				+ ", password='" + mask(password) + '\''
+				+ ", groupId='" + groupId + '\''
+				+ ", dataId='" + dataId + '\''
+				+ ", endpoint='" + endpoint + '\''
+				+ ", namespace='" + namespace + '\''
+				+ ", accessKey='" + mask(accessKey) + '\''
+				+ ", secretKey='" + mask(secretKey) + '\''
+				+ '}';
+	}
+
+	private String mask(String value) {
+		return (value == null || value.isEmpty()) ? value : "******";
+	}
+
 }

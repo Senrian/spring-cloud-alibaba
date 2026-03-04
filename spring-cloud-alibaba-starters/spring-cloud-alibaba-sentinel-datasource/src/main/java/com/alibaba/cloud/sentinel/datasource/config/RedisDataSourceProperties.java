@@ -171,4 +171,23 @@ public class RedisDataSourceProperties extends AbstractDataSourceProperties {
 		this.masterId = masterId;
 	}
 
+	@Override
+	public String toString() {
+		return "RedisDataSourceProperties{"
+				+ "host='" + host + '\''
+				+ ", port=" + port
+				+ ", password='" + mask(password) + '\''
+				+ ", database=" + database
+				+ ", timeout=" + timeout
+				+ ", nodes=" + nodes
+				+ ", ruleKey='" + ruleKey + '\''
+				+ ", channel='" + channel + '\''
+				+ ", masterId='" + masterId + '\''
+				+ '}';
+	}
+
+	private String mask(String value) {
+		return (value == null || value.isEmpty()) ? value : "******";
+	}
+
 }
